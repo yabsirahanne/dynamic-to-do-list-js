@@ -57,4 +57,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+function addTask() {
+    const taskText = taskInput.value.trim();
+
+    if (taskText === "") {
+        alert("Please enter a task!");
+        return;
+    }
+
+    // Create task list item
+    const li = document.createElement("li");
+    li.textContent = taskText;
+    li.classList.add("task-item"); // Add a class for styling
+
+    // Create remove button
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.classList.add("remove-btn"); // Add class using classList
+
+    // Add event listener for removing task
+    removeButton.onclick = () => taskList.removeChild(li);
+
+    // Append elements
+    li.appendChild(removeButton);
+    taskList.appendChild(li);
+
+    // Clear input field
+    taskInput.value = "";
+}
 });
