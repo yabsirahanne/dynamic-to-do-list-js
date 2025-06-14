@@ -1,7 +1,7 @@
 // Wait for the DOM to fully load
 document.addEventListener("DOMContentLoaded", () => {
     // Select DOM elements
-    const add-task-btn = document.getElementById("add-task");
+    const addButton = document.getElementById("add-task");
     const taskInput = document.getElementById("task-input");
     const taskList = document.getElementById("task-list");
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Event listener for button click
-    add-task-btn.addEventListener("click", addTask);
+    addButton.addEventListener("click", addTask);
 
     // Event listener for pressing "Enter" in input field
     taskInput.addEventListener("keypress", (event) => {
@@ -43,4 +43,18 @@ document.addEventListener("DOMContentLoaded", () => {
             addTask();
         }
     });
+    document.addEventListener("DOMContentLoaded", () => {
+    addTask(); // Call the function when the DOM is fully loaded
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const addButton = document.getElementById("add-task-btn");
+    const taskInput = document.getElementById("task-input");
+
+    addButton.addEventListener("click", addTask);
+    taskInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            addTask();
+        }
+    });
+});
 });
