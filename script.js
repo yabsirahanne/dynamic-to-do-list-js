@@ -43,10 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
             addTask();
         }
     });
+    function loadTasks() {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    storedTasks.forEach(taskText => addTask(taskText, false)); // false = don't re-save to storage
+}
     document.addEventListener("DOMContentLoaded", () => {
     addTask(); // Call the function when the DOM is fully loaded
 });
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => { 
+    loadTaasks(); // Call the function to load tasks when the DOM is fully loaded
     const addButton = document.getElementById("add-task-btn");
     const taskInput = document.getElementById("task-input");
 
